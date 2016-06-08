@@ -5,7 +5,7 @@ function ($scope, socket) {
   //chart labels
   $scope.labels = ["iPhone", "iPad", "Android", "Web Client", "Other"];
   //chart colors
-  $scope.colors = ['#6c6a6c','#000000','#7FFD1F','#EC872A', '#9527C2'];
+  $scope.colors = ['#ffffff','#ddccdd','#ddffaa','#ccccff', '#aa99dd'];
   //intial data values
   $scope.trumpData = [0,0,0,0,0];
   $scope.sandersData = [0,0,0,0,0];
