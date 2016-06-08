@@ -4,6 +4,7 @@ var port = '3000';
 var app = require('./app');
 var Twitter = require('twitter');
 var config = require('./_config');
+var sentiment = require('sentiment');
 
 
 var server = app.listen(3000, function () {
@@ -19,11 +20,13 @@ var client = new Twitter({
   access_token_secret: config.access_token_secret
 });
 
-var hashtags = '#Trump, #FeelTheBern';
+var hashtags = '#Trump, #FeelTheBern, #hillaryclinton';
 
 client.stream('statuses/filter', {track: hashtags}, function(stream) {
   stream.on('data', function(tweet) {
-    io.emit('newTweet', tweet);
+    var sentiments = sentiment(tweet.text);
+    console.log(sentiments);
+    io.emit('newTweet', tweet, sentiments);
   });
   stream.on('error', function(error) {
     throw error;

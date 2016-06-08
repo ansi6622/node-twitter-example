@@ -2,12 +2,15 @@ body {
  background-color: rgb(95, 165, 218);
 }
 
-#trump #sanders {
+#trump #trump2 #sanders #sanders2 #hillary #hillary2 {
   float: right;
-  width: 110% !important;
-  height: 110% !important;
+  width: 20px !important;
+  height: 20px !important;
+  text-align: center;
 }
-
+.left .middle .right {
+display: block;
+}
 .name {
   font-weight:bold;
   font-size:30px;
@@ -15,8 +18,13 @@ body {
 }
 
 .img {
-  width: 150%;
-  height: 150%;
+  width: 20em;
+  height: 20em;
   border-radius: 50%;
   border: 2px solid #fff;
 }
+/*
+canvas {
+  width: 50%;
+  height: 50%;
+}*/

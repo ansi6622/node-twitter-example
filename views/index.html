@@ -2,52 +2,131 @@
 
 {% block content %}
 
-<div ng-app='myApp' ng-controller="mainCtrl">
-  <div class='row' style='margin-top: 50px'>
-    <div class='col-md-2 col-lg-4'>
-      <img class='img' src='../img/trump.png'>
-    </div>
-    <div class='col-md-4 col-lg-8'>
-      <span class='name'>#Trump</span>
-      <canvas id="trump" class="chart chart-doughnut"
-      chart-colours='colors' chart-legend="true"
-      chart-data="trumpData" chart-labels="labels">
-    </canvas>
-  </div>
-  <div class='col-md-2 col-lg-4'>
-    <img class='img' src='../img/sanders.png'>
-  </div>
-  <div class='col-md-4 col-lg-8'>
-    <span class='name'>#FeelTheBern</span>
-    <canvas id="sanders" class="chart chart-doughnut"
-    chart-colours='colors' chart-legend="true"
-    chart-data="sandersData" chart-labels="labels">
-  </canvas>
-</div>
-</div>
-<br><br>
-<div class='row'>
-  <div class="col-md-12">
-    {% raw %}
-    <div class="tweet-zone">
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 panelheader class="panel-title">
-              <a href="https://twitter.com/{{user}}">{{user}}</a></h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-12">
-                    {{tweet}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endraw %}
-  </div>
+    <div ng-app='myApp' ng-controller="mainCtrl">
+        <div class='row' style='margin-top: 50px'>
+            <article class="left">
+                <table>
+                    <thead>
+                      <tr>
+                        <p>
+                          Trump
+                        </p>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>
+                            <img class='img' src='../img/trump.png'>
+                          </td>
+                          <td>
+                            <span class='name'>#Trump</span>
+                            <canvas id="trump" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="trumpData" chart-labels="labels"></canvas>
+                            <span ng-repeat="word in sentTrumpPos track by $index">
+                              <span ng-bind="word"></span>
+                            </span>
+                          </td>
+                            <td>
+                                <span class='name'>#Trump :(</span>
+                                <canvas id="trump2" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="trumpData2" chart-labels="labels"></canvas>
+                                <span ng-repeat="word in sentTrumpNeg track by $index">
+                                  <span ng-bind="word"></span>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
 
-  {% endblock %}
+            <article class="middle">
+                <table>
+                    <thead>
+                      <tr>
+                        <p>
+                          Bernie
+                        </p>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>
+                            <img class='img' src='../img/sanders.png'>
+                          </td>
+                            <td>
+                                <span class='name'>#FeelTheBern</span>
+                                <canvas id="sanders" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="sandersData" chart-labels="labels"></canvas>
+                                <span ng-repeat="word in sentBerniePos track by $index">
+                                  <span ng-bind="word"></span>
+                                </span>
+                            </td>
+                            <td>
+                                <span class='name'>#FeelTheBern :(</span>
+                                <canvas id="sanders2" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="sandersData2" chart-labels="labels"></canvas>
+                                <span ng-repeat="word in sentBernieNeg track by $index">
+                                  <span ng-bind="word"></span>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            <article class="right">
+                <table>
+                    <thead>
+                        <tr>
+                          <p>
+                            Hillary
+                          </p>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>
+                            <img class='img' src='https://mises.org/sites/default/files/23158392405_d3e3b60cb8_o.jpg'>
+                          </td>
+                            <td>
+                                <span class='name'>#hillaryclinton</span>
+                                <canvas id="hillary" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="hillaryData" chart-labels="labels"></canvas>
+                                  <span ng-repeat="word in sentHillaryPos track by $index">
+                                    <span ng-bind="word"></span>
+                                  </span>
+                            </td>
+                            <td>
+                                <span class='name'>#hillaryclinton :(</span>
+                                <canvas id="hillary2" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="hillaryData2" chart-labels="labels"></canvas>
+                                <span ng-repeat="word in sentHillaryNeg track by $index">
+                                  <span ng-bind="word"></span>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div>
+        <br><br>
+        <div class='row'>
+            <div class="col-md-12">
+                {% raw %}
+                    <div class="tweet-zone">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 panelheader class="panel-title">
+                                        <a href="https://twitter.com/{{user}}">{{user}}</a>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{tweet}}
+                                            {{sentiment}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endraw %}
+        </div>
+
+    {% endblock %}
