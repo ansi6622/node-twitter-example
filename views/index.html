@@ -21,16 +21,34 @@
                           <td>
                             <span class='name'>#Trump</span>
                             <canvas id="trump" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="trumpData" chart-labels="labels"></canvas>
-                            <span ng-repeat="word in sentTrumpPos track by $index">
-                              <span ng-bind="word"></span>
+                            <span ng-repeat="word in sentTrumpPos">
+                              <span ng-bind="word.txt"></span>
+                              <span ng-bind="word.cnt"></span>
                             </span>
+                            <h4>
+                            <span ng-repeat="word in sentTrumpPos">
+                              <span ng-if="word.big == true">
+                                <span ng-bind="word.txt"></span>
+                                <span ng-bind="word.cnt"></span>
+                              </span>
+                            </span>
+                          </h4>
                           </td>
                             <td>
                                 <span class='name'>#Trump :(</span>
                                 <canvas id="trump2" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="trumpData2" chart-labels="labels"></canvas>
                                 <span ng-repeat="word in sentTrumpNeg track by $index">
-                                  <span ng-bind="word"></span>
+                                  <span ng-bind="word.txt"></span>
+                                  <span ng-bind="word.cnt"></span>
                                 </span>
+                                <h4>
+                                <span ng-repeat="word in sentTrumpNeg">
+                                  <span ng-if="word.big == true">
+                                    <span ng-bind="word.txt"></span>
+                                    <span ng-bind="word.cnt"></span>
+                                  </span>
+                                </span>
+                              </h4>
                             </td>
                         </tr>
                     </tbody>
@@ -55,15 +73,33 @@
                                 <span class='name'>#FeelTheBern</span>
                                 <canvas id="sanders" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="sandersData" chart-labels="labels"></canvas>
                                 <span ng-repeat="word in sentBerniePos track by $index">
-                                  <span ng-bind="word"></span>
+                                  <span ng-bind="word.txt"></span>
+                                  <span ng-bind="word.cnt"></span>
                                 </span>
+                                <h4>
+                                <span ng-repeat="word in sentBerniePos">
+                                  <span ng-if="word.big == true">
+                                    <span ng-bind="word.txt"></span>
+                                    <span ng-bind="word.cnt"></span>
+                                  </span>
+                                </span>
+                              </h4>
                             </td>
                             <td>
                                 <span class='name'>#FeelTheBern :(</span>
                                 <canvas id="sanders2" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="sandersData2" chart-labels="labels"></canvas>
                                 <span ng-repeat="word in sentBernieNeg track by $index">
-                                  <span ng-bind="word"></span>
+                                  <span ng-bind="word.txt"></span>
+                                  <span ng-bind="word.cnt"></span>
                                 </span>
+                                <h4>
+                                <span ng-repeat="word in sentBernieNeg">
+                                  <span ng-if="word.big == true">
+                                    <span ng-bind="word.txt"></span>
+                                    <span ng-bind="word.cnt"></span>
+                                  </span>
+                                </span>
+                              </h4>
                             </td>
                         </tr>
                     </tbody>
@@ -87,15 +123,33 @@
                                 <span class='name'>#hillaryclinton</span>
                                 <canvas id="hillary" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="hillaryData" chart-labels="labels"></canvas>
                                   <span ng-repeat="word in sentHillaryPos track by $index">
-                                    <span ng-bind="word"></span>
+                                    <span ng-bind="word.txt"></span>
+                                    <span ng-bind="word.cnt"></span>
                                   </span>
+                                  <h4>
+                                  <span ng-repeat="word in sentHillaryPos">
+                                    <span ng-if="word.big == true">
+                                      <span ng-bind="word.txt"></span>
+                                      <span ng-bind="word.cnt"></span>
+                                    </span>
+                                  </span>
+                                </h4>
                             </td>
                             <td>
                                 <span class='name'>#hillaryclinton :(</span>
                                 <canvas id="hillary2" class="chart chart-doughnut" chart-colours='colors' chart-legend="true" chart-data="hillaryData2" chart-labels="labels"></canvas>
                                 <span ng-repeat="word in sentHillaryNeg track by $index">
-                                  <span ng-bind="word"></span>
+                                  <span ng-bind="word.txt"></span>
+                                  <span ng-bind="word.cnt"></span>
                                 </span>
+                                <h4>
+                                <span ng-repeat="word in sentHillaryNeg">
+                                  <span ng-if="word.big == true">
+                                    <span ng-bind="word.txt"></span>
+                                    <span ng-bind="word.cnt"></span>
+                                  </span>
+                                </span>
+                              </h4>
                             </td>
                         </tr>
                     </tbody>
